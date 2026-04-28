@@ -1,0 +1,1 @@
+CivicElections v0.1.0 ships election administration support foundations. It is not a voter registration system, ballot marking device, tabulator, election conduct automation system, campaign finance system of record, official certification workflow, live LLM runtime, or election-system connector. Dependency: civiccore==0.2.0.
