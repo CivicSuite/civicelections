@@ -1,6 +1,6 @@
 """FastAPI runtime foundation for CivicElections."""
 from civiccore import __version__ as CIVICCORE_VERSION
-from fastapi import FastAPI
+from fastapi import FastAPI, Response
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 
@@ -41,7 +41,7 @@ class AccessibilityRequest(BaseModel):
 
 @app.get("/")
 def root() -> dict[str, str]:
-    return {"name":"CivicElections","version":__version__,"status":"election administration foundation","message":"CivicElections guidance, candidate filing checklists, worker training Q&A, ballot-summary drafts, campaign-finance summaries, canvass checklists, accessibility review, and public UI foundation are online; voter registration, ballot marking, tabulation, election conduct automation, official certification, live LLM calls, and election-system connector runtime are not implemented yet.","next_step":"Post-v0.1.0 roadmap: official source imports, clerk review queues, and CivicAccess handoffs"}
+    return {"name":"CivicElections","version":__version__,"status":"election administration foundation","message":"CivicElections guidance, candidate filing checklists, worker training Q&A, ballot-summary drafts, campaign-finance summaries, canvass checklists, accessibility review, and public UI foundation are online; voter registration, ballot marking, tabulation, election conduct automation, official certification, live LLM calls, and election-system connector runtime are not implemented yet.","next_step":"Post-v0.1.1 roadmap: official source imports, clerk review queues, and CivicAccess handoffs"}
 
 @app.get("/health")
 def health() -> dict[str, str]:
@@ -78,3 +78,9 @@ def canvass(request: CanvassRequest) -> dict[str, object]:
 @app.post("/api/v1/civicelections/accessibility-review")
 def accessibility(request: AccessibilityRequest) -> dict[str, object]:
     return review_accessible_material(request.material_name, request.languages).__dict__
+
+@app.get("/favicon.ico", include_in_schema=False)
+def favicon() -> Response:
+    """Return an empty favicon response so browser QA has a clean console."""
+
+    return Response(status_code=204)

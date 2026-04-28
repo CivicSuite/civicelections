@@ -1,1 +1,1 @@
-CivicElections helps clerks prepare election administration support materials. It is not voter registration, ballot marking, tabulation, election conduct automation, official certification, live LLM runtime, or election-system connector. Dependency: civiccore==0.2.0.
+CivicElections helps clerks prepare election administration support materials. It is not voter registration, ballot marking, tabulation, election conduct automation, official certification, live LLM runtime, or election-system connector. Dependency: civiccore==0.3.0.
