@@ -2,6 +2,11 @@
 
 ## [0.1.1] - 2026-04-28
 
+### Added
+
+- Optional SQLAlchemy-backed candidate filing and canvass checklist workpaper records via `CIVICELECTIONS_WORKPAPER_DB_URL`.
+- Candidate filing and canvass checklist retrieval endpoints for persisted records.
+
 ### Changed
 
 - Dependency-alignment release: moved CivicElections to `civiccore==0.3.0` while preserving the existing v0.1.0 runtime foundation behavior.
